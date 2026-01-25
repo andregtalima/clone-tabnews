@@ -9,7 +9,7 @@ export default function Home() {
                 <li>Pensativo</li>
             </ul>
 
-            <h2>Aguado sua resposta, te amo!!</h2>
+            <h2>Aguardo sua resposta, te amo!!</h2>
         </div>
     )
 }
