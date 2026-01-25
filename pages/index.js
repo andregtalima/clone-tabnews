@@ -1,7 +1,4 @@
-import { useState } from "react"
-
 export default function Home() {
-    const [state, setState] = useState("")
     return (
         <div>
             <h1>Meu amor. Como estou hj?</h1>
