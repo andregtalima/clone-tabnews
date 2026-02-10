@@ -10,7 +10,9 @@ async function query(queryObject) {
     console.error(err);
     throw err;
   } finally {
-    await client.end();
+    if (client) {
+      await client.end();
+    }
   }
 }
 
@@ -34,6 +36,12 @@ async function getNewClient() {
 }
 
 function getSSLValues() {
-  const isLocal = process.env.POSTGRES_HOST === "localhost";
-  isLocal ? false : { rejectUnauthorized: false };
+  if (process.env.POSTGRES_HOST === "localhost") {
+    return false;
+  }
+
+  return {
+    require: true,
+    rejectUnauthorized: false,
+  };
 }
